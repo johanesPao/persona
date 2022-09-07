@@ -1,0 +1,17 @@
+{
+  "name": "persona",
+  "version": "1.0.0",
+  "description": "situs personal johanes pao",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "api",
+    "story",
+    "blog"
+  ],
+  "author": "Johanes Pao",
+  "license": "ISC"
+}

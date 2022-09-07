@@ -1,0 +1,21 @@
+{
+  "name": "persona-be",
+  "version": "1.0.0",
+  "description": "backend for persona",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Johanes Pao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.2"
+  }
+}
