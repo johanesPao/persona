@@ -19,4 +19,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm start --prefix back-end
+# Tidak perlu run server di continuous integration
+# Jalankan build fe dan test API di be
+#      - run: npm start --prefix back-end
