@@ -6,7 +6,7 @@ require('dotenv').config()
 const app = express()
 
 app.use('/', (req, res) => {
-    return res.send('Selamat datang di persona...')
+    return res.status(200).send('Selamat datang di persona...')
 })
 
 http.createServer(app).listen(process.env.PORT, () => {
