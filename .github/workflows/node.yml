@@ -22,3 +22,20 @@ jobs:
 # Tidak perlu run server di continuous integration
 # Jalankan build fe dan test API di be
 #      - run: npm start --prefix back-end
+      - name: Login ke Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCES_TOKEN }}
+      - name: Konfigurasi Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build dan push docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/persona:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/persona:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/persona:buildcache,mode=max
