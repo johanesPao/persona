@@ -4,7 +4,12 @@
   "description": "situs personal johanes pao",
   "main": "index.js",
   "scripts": {
+    "start": "npm start-fe && npm start-be",
     "install-back-end": "npm install --prefix back-end",
+    "install-front-end": "npm install --prefix front-end",
+    "start-fe": "npm start --prefix front-end",
+    "start-be": "npm start --prefix back-end",
+    "build-fe": "npm run build --prefix front-end",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

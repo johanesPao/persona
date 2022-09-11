@@ -2,8 +2,9 @@ const http = require('http')
 
 const express = require('express')
 
+// import dotenv dan dekonstruksi variabel env
 require('dotenv').config()
-const PORT = process.env.PORT
+const { PORT, MONGO_URL } = process.env
 
 const app = require('./app')
 

@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-# Tidak perlu run server di continuous integration
-# Jalankan build fe dan test API di be
-#      - run: npm start --prefix back-end
+      # NPM install front-end back-end
+      - run: npm run install-back-end && npm run install-front-end
+      # build front-end
+      - run: npm run build-fe
+      # Tidak perlu run server di continuous integration
+      # Jalankan build fe dan test API di be
+      # - run: npm start --prefix back-end
       - name: Login ke Docker Hub
         uses: docker/login-action@v2
         with:
