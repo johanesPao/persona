@@ -4,7 +4,7 @@
   "description": "situs personal johanes pao",
   "main": "index.js",
   "scripts": {
-    "start": "npm start-fe && npm start-be",
+    "start": "npm run start-fe && npm run start-be",
     "install-back-end": "npm install --prefix back-end",
     "install-front-end": "npm install --prefix front-end",
     "start-fe": "npm start --prefix front-end",
