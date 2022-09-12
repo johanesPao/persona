@@ -1,20 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const tulisanSchema = new mongoose.Schema({
+const tulisanSchema = new mongoose.Schema(
+  {
+    idTulisan: {
+      type: Number,
+      required: true,
+    },
     judulTulisan: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     tanggalTulisan: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     isiTulisan: {
-        type: String,
-        required: true
-    }
-}, {
-    collection: 'tulisan'
-})
+      type: String,
+      required: true,
+    },
+  },
+  {
+    collection: 'tulisan',
+  }
+);
 
-module.exports = mongoose.model('Tulisan', tulisanSchema)
+module.exports = mongoose.model('tulisan', tulisanSchema);
