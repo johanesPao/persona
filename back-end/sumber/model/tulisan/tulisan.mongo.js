@@ -21,7 +21,7 @@ const tulisanSchema = new mongoose.Schema(
   },
   {
     collection: 'tulisan',
-  }
+  },
 );
 
 module.exports = mongoose.model('tulisan', tulisanSchema);
