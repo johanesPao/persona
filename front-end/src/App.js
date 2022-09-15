@@ -1,13 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { useKonteksGlobal } from './konteks/konteks'
 
-import Konten from './komponen/Konten'
+import HalamanMuka from './halaman/HalamanMuka';
+import HalamanTidakDitemukan from './halaman/HalamanTidakDitemukan';
 
-export default class ReactApp extends React.Component {
-    render() {
-        return (
-            <div className='container mx-auto bg-gray-light rounded-xl shadow border p-8 m-10'>
-                <Konten />
-                </div>
-        )
-    }
-}
+const App = () => {
+  // const {} = useKonteksGlobal()
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HalamanMuka />} />
+        <Route path='*' element={<HalamanTidakDitemukan />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
