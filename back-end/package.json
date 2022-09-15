@@ -4,7 +4,8 @@
   "description": "backend for persona",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon sumber/server.js",
+    "start": "node sumber/server.js",
+    "start-dev": "nodemon sumber/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
