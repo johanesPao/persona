@@ -15,8 +15,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-css": "tailwindcss -i ./src/css/index.css -o ./src/css/main.css",
-    "css-watch": "tailwindcss -i ./css/index.css -o ./css/main.css --watch",
+    "build-css": "tailwindcss -i src/css/index.css -o src/css/main.css",
+    "css-watch": "tailwindcss -i ./src/css/index.css -o ./src/css/main.css --watch",
     "build": "npm run build-css && react-scripts build && rm -rf ../back-end/publik && mv build ../back-end/publik",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
