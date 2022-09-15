@@ -2,6 +2,7 @@ name: Persona CI
 on:
   push:
     branches: [main]
+    tags: 'v*'
   pull_request:
     branches: [main]
 jobs:
@@ -37,8 +38,5 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/persona:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/persona:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/persona:buildcache,mode=max
