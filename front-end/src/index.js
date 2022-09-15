@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { PenyediaAplikasi } from './konteks/konteks';
 
-import './css/index.css';
+import './css/main.css';
 
 import App from './App';
 
