@@ -6,6 +6,8 @@ COPY package*.json ./
 
 COPY back-end/package*.json back-end/
 RUN npm run install-back-end --omit=dev
+RUN npm run install-front-end --omit=dev
+RUN npm run build-fe
 
 COPY back-end/ back-end/
 
