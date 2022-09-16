@@ -10,7 +10,7 @@ const HalamanPenulisan = () => {
   const [isiJudul, setIsiJudul] = useState('');
   const [isiTulisan, setIsiTulisan] = useState('');
   const [kesalahan, setKesalahan] = useState(false);
-  const [tunjukkanModal, setTunjukkanModal] = useState(false);
+  // const [tunjukkanModal, setTunjukkanModal] = useState(false);
 
   const penangananSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +35,7 @@ const HalamanPenulisan = () => {
     // - tampilkan modal pesan sukses posting
     if (status === 201) {
       console.log('sukses');
+      console.log(data);
     }
     // TODO: if status 500 lakukan sesuatu:
     // -
@@ -45,7 +46,7 @@ const HalamanPenulisan = () => {
 
   return (
     <>
-      {tunjukkanModal && <ModalPenulisan />}
+      {/* {tunjukkanModal && <ModalPenulisan />} */}
       <div className='container mx-auto p-8'>
         <form
           onSubmit={penangananSubmit}
