@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import ModalPenulisan from '../komponen/ModalPenulisan';
+// import ModalPenulisan from '../komponen/ModalPenulisan';
 
 import { useKonteksGlobal } from '../konteks/konteks';
 
