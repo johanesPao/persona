@@ -3,7 +3,12 @@ import React, { useContext, useReducer, useEffect } from 'react';
 import logika from './logika';
 
 const VERSI_API = 'v1';
-const BACK_END_URL = `http://localhost:8000/${VERSI_API}`;
+const DEV = 'http://localhost:8000/';
+const PRO = 'http://jpao.live/';
+const BACKEND_API =
+  process.env.NODE_ENV === 'development'
+    ? `${DEV}${VERSI_API}`
+    : `${PRO}${VERSI_API}`;
 
 const KonteksAplikasi = React.createContext();
 
@@ -21,7 +26,7 @@ const PenyediaAplikasi = ({ children }) => {
     eksekusi({
       tipe: 'MEMUAT',
     });
-    const response = await fetch(`${BACK_END_URL}/tulisan`);
+    const response = await fetch(`${BACKEND_API}/tulisan`);
     const dataTulisan = await response.json();
     eksekusi({
       tipe: 'TAMPILKAN_TULISAN',
@@ -38,10 +43,7 @@ const PenyediaAplikasi = ({ children }) => {
         },
         body: JSON.stringify(tulisan),
       };
-      const response = await fetch(
-        `${BACK_END_URL}/tulisan`,
-        konfigurasiRekues,
-      );
+      const response = await fetch(`${BACKEND_API}/tulisan`, konfigurasiRekues);
       const dataResponse = await response.json();
       return dataResponse;
     } catch (kesalahan) {
