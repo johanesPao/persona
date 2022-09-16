@@ -4,7 +4,7 @@ import logika from './logika';
 
 const VERSI_API = 'v1';
 const DEV = 'http://localhost:8000/';
-const PRO = 'http://jpao.live/';
+const PRO = 'https://jpao.live/';
 const BACKEND_API =
   process.env.NODE_ENV === 'development'
     ? `${DEV}${VERSI_API}`
