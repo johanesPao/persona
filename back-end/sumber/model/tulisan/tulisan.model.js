@@ -37,49 +37,32 @@ const isiTulisanPertama = `
 const tulisanTest = {
   idTulisan: 1,
   judulTulisan: 'Perjalanan Menuju Dunia Baru',
-  tanggalTulisan: new Date('September 12, 2022'),
   isiTulisan: isiTulisanPertama,
 };
-
-async function muatDataTulisan() {
-  const muatDataAwal = await cariTulisan({
-    idTulisan: 1,
-  });
-  console.log(muatDataAwal);
-  if (muatDataAwal) {
-    console.log('Data awal sudah dimuat!');
-  } else {
-    simpanTulisan(tulisanTest);
-  }
-}
 
 async function cariTulisan(filter) {
   return await tulisan.findOne(filter);
 }
 
 async function simpanTulisan(tulisanBaru) {
-  await tulisan.findOneAndUpdate(
-    {
-      idTulisan: tulisanBaru.idTulisan,
-    },
-    tulisanBaru,
-    {
-      upsert: true,
-    },
-  );
+  console.log(tulisanBaru);
+  tulisanBaru.tanggalTulisan = new Date();
+
+  await tulisan.create(tulisanBaru);
 }
 
 async function getSemuaTulisan() {
-  return await tulisan.find(
+  const data = await tulisan.find(
     {},
     {
-      _id: 0,
       __v: 0,
     },
   );
+  console.log(data);
+  return data;
 }
 
 module.exports = {
   getSemuaTulisan,
-  muatDataTulisan,
+  simpanTulisan,
 };

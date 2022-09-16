@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 const tulisanSchema = new mongoose.Schema(
   {
-    idTulisan: {
-      type: Number,
-      required: true,
-    },
     judulTulisan: {
       type: String,
       required: true,
