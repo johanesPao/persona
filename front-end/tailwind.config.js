@@ -2,6 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}', './public/index.html'],
   theme: {
+    extend: {
+      fontFamily: {
+        fira: ['Fira Code'],
+      },
+    },
     colors: {
       dark: '#16213E',
       navy: '#0F3460',

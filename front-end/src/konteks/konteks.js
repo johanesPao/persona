@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect } from 'react';
+import React, { useContext, useReducer } from 'react';
 
 import logika from './logika';
 
@@ -13,7 +13,7 @@ const BACKEND_API =
 const KonteksAplikasi = React.createContext();
 
 const keadaanAwal = {
-  sedangMemuat: false,
+  sedangMemuat: true,
   dataTulisan: [],
   isiJudul: '',
   isiTulisan: '',
@@ -52,10 +52,6 @@ const PenyediaAplikasi = ({ children }) => {
       };
     }
   };
-
-  useEffect(() => {
-    muatTulisan();
-  }, []);
 
   return (
     <KonteksAplikasi.Provider

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// import ModalPenulisan from '../komponen/ModalPenulisan';
+import Modal from '../komponen/Modal';
 
 import { useKonteksGlobal } from '../konteks/konteks';
 
@@ -10,7 +10,8 @@ const HalamanPenulisan = () => {
   const [isiJudul, setIsiJudul] = useState('');
   const [isiTulisan, setIsiTulisan] = useState('');
   const [kesalahan, setKesalahan] = useState(false);
-  // const [tunjukkanModal, setTunjukkanModal] = useState(false);
+  const [tunjukkanModal, setTunjukkanModal] = useState(false);
+  const [statusModal, setStatusModal] = useState('');
 
   const penangananSubmit = async (e) => {
     e.preventDefault();
@@ -29,16 +30,24 @@ const HalamanPenulisan = () => {
     const response = await simpanTulisan(tulisan);
     const { status, data } = response;
     // TODO: if status 201 lakukan sesuatu:
-    // - tambahkan data tulisan ke dalam state dataTulisan
-    // - trigger muatTulisan di halaman muka untuk menampilkan semua tulisan
-    // - kembalikan input judul dan tulisan ke ''
-    // - tampilkan modal pesan sukses posting
     if (status === 201) {
-      console.log('sukses');
-      console.log(data);
+      // - kembalikan input judul dan tulisan ke ''
+      setIsiJudul('');
+      setIsiTulisan('');
+      // - tampilkan modal pesan sukses posting
+      setStatusModal('TULISAN_SUKSES');
+      setTunjukkanModal(true);
     }
+
+    // - saat modal ditutup, navigasikan ke halaman depan
+    // if (status === 201) {
+    //   console.log('sukses');
+    //   console.log(data);
+    // }
     // TODO: if status 500 lakukan sesuatu:
-    // -
+    // - tunjukkan modal kegagalan
+    // - saat modal ditutup, pengguna tetap di halaman penulisan
+    // - nilai dari judul dan isi tetap tidak berubah sesuai dengan nilai terakhir
     if (status === 500) {
       console.log('kesalahan');
     }
@@ -46,14 +55,13 @@ const HalamanPenulisan = () => {
 
   return (
     <>
-      {/* {tunjukkanModal && <ModalPenulisan />} */}
       <div className='container mx-auto p-8'>
         <form
           onSubmit={penangananSubmit}
-          className='bg-white shadow-md rounded px-8 py-6 mb-4'
+          className='bg-dark shadow-md rounded px-8 py-6 mb-4'
         >
           <div className='mb-4'>
-            <label className='block text-dark text-sm font-bold mb-2'>
+            <label className='block text-white text-sm font-bold mb-2'>
               Judul
             </label>
             <input
@@ -66,7 +74,7 @@ const HalamanPenulisan = () => {
             />
           </div>
           <div className='mb-6'>
-            <label className='block text-dark text-sm font-bold mb-2'>
+            <label className='block text-white text-sm font-bold mb-2'>
               Isi Tulisan
             </label>
             <textarea
@@ -81,13 +89,20 @@ const HalamanPenulisan = () => {
           <div className='flex items-center justify-between'>
             <button
               type='submit'
-              className='bg-navy text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+              className='bg-purple text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
             >
               Publikasi
             </button>
           </div>
         </form>
       </div>
+      {tunjukkanModal && (
+        <Modal
+          tunjukkanModal={tunjukkanModal}
+          setTunjukkanModal={setTunjukkanModal}
+          statusModal={statusModal}
+        />
+      )}
     </>
   );
 };
