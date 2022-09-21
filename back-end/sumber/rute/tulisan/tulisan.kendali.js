@@ -1,6 +1,7 @@
 const {
   getSemuaTulisan,
   simpanTulisan,
+  getTulisan,
 } = require('../../model/tulisan/tulisan.model');
 
 async function httpGetSemuaTulisan(req, res) {
@@ -23,7 +24,17 @@ async function httpPostTulisan(req, res) {
   }
 }
 
+async function httpGetTulisan(req, res) {
+  try {
+    const data = await getTulisan(req.body.id);
+    return res.status(200).json(data);
+  } catch (kesalahan) {
+    throw new Error(kesalahan);
+  }
+}
+
 module.exports = {
   httpGetSemuaTulisan,
   httpPostTulisan,
+  httpGetTulisan,
 };
