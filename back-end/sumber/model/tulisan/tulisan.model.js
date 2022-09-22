@@ -14,32 +14,35 @@ async function simpanTulisan(tulisanBaru) {
 async function getSemuaTulisan() {
   try {
     const data = await tulisan.find(
-    {},
-    {
-      __v: 0,
-    },
-  );
-  return data;
+      {},
+      {
+        __v: 0,
+      },
+    );
+    return data;
+  } catch (kesalahan) {
+    throw new Error(kesalahan);
   }
-} catch (kesalahan) {
-  throw new Error(kesalahan)
 }
 
 async function getTulisan(id) {
   try {
-    const data = await tulisan.findOne({
-      _id: id
-    }, {
-      __v: 0
-    })
-    return data
+    const data = await tulisan.findOne(
+      {
+        _id: id,
+      },
+      {
+        __v: 0,
+      },
+    );
+    return data;
   } catch (kesalahan) {
-    throw new Error(kesalahan)
+    throw new Error(kesalahan);
   }
 }
 
 module.exports = {
   getSemuaTulisan,
   simpanTulisan,
-  getTulisan
+  getTulisan,
 };
