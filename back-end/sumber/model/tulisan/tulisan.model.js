@@ -5,7 +5,6 @@ async function cariTulisan(filter) {
 }
 
 async function simpanTulisan(tulisanBaru) {
-  console.log(tulisanBaru);
   tulisanBaru.tanggalTulisan = new Date();
 
   await tulisan.create(tulisanBaru);

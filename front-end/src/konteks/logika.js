@@ -5,7 +5,18 @@ const logika = (keadaan, tindakan) => {
         ...keadaan,
         sedangMemuat: true,
       };
+    case 'SELESAI_MEMUAT':
+      return {
+        ...keadaan,
+        sedangMemuat: false,
+      };
     case 'TAMPILKAN_TULISAN':
+      return {
+        ...keadaan,
+        dataTulisan: tindakan.muatan,
+        sedangMemuat: false,
+      };
+    case 'TAMPILKAN_SATU_TULISAN':
       return {
         ...keadaan,
         dataTulisan: tindakan.muatan,

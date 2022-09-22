@@ -14,6 +14,7 @@ const Navigasi = () => {
 
   return (
     <>
+      {/* // TODO: buat event handler untuk window.innerWidth yang akan memonitor ukuran window dan juga state dari mobile menu untuk menutup jika window size lebih dari 768 px*/}
       {/* // TODO: isi navlink dengan iterasi menu dari konfigurasi menu yg disimpan
       di database // flex justify-center space-x-4 */}
       <nav className='flex bg-navy items-center justify-between flex-wrap p-6'>

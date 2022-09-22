@@ -14,7 +14,7 @@ const KonteksAplikasi = React.createContext();
 
 const keadaanAwal = {
   sedangMemuat: true,
-  dataTulisan: [],
+  // dataTulisan: [],
   isiJudul: '',
   isiTulisan: '',
 };
@@ -29,9 +29,21 @@ const PenyediaAplikasi = ({ children }) => {
     const response = await fetch(`${BACKEND_API}/tulisan`);
     const dataTulisan = await response.json();
     eksekusi({
-      tipe: 'TAMPILKAN_TULISAN',
-      muatan: dataTulisan,
+      tipe: 'SELESAI_MEMUAT',
     });
+    return dataTulisan;
+  };
+
+  const ambilSatuTulisan = async (id) => {
+    eksekusi({
+      tipe: 'MEMUAT',
+    });
+    const response = await fetch(`${BACKEND_API}/tulisan/${id}`);
+    const satuTulisan = await response.json();
+    eksekusi({
+      tipe: 'SELESAI_MEMUAT',
+    });
+    return satuTulisan;
   };
 
   const simpanTulisan = async (tulisan) => {
@@ -59,6 +71,7 @@ const PenyediaAplikasi = ({ children }) => {
         ...keadaan,
         muatTulisan,
         simpanTulisan,
+        ambilSatuTulisan,
       }}
     >
       {children}

@@ -9,7 +9,6 @@ async function httpGetSemuaTulisan(req, res) {
 }
 
 async function httpPostTulisan(req, res) {
-  console.log(req.body);
   try {
     await simpanTulisan(req.body);
     return res.status(201).json({
@@ -26,7 +25,7 @@ async function httpPostTulisan(req, res) {
 
 async function httpGetTulisan(req, res) {
   try {
-    const data = await getTulisan(req.body.id);
+    const data = await getTulisan(req.params.id);
     return res.status(200).json(data);
   } catch (kesalahan) {
     throw new Error(kesalahan);
