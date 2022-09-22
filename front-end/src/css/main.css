@@ -699,6 +699,10 @@ html {
   resize: none;
 }
 
+.resize {
+  resize: both;
+}
+
 .appearance-none {
   -webkit-appearance: none;
           appearance: none;
