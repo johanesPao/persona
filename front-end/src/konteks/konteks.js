@@ -14,7 +14,7 @@ const KonteksAplikasi = React.createContext();
 
 const keadaanAwal = {
   sedangMemuat: true,
-  // dataTulisan: [],
+  adalahAdmin: false,
   isiJudul: '',
   isiTulisan: '',
 };
@@ -22,6 +22,7 @@ const keadaanAwal = {
 const PenyediaAplikasi = ({ children }) => {
   const [keadaan, eksekusi] = useReducer(logika, keadaanAwal);
 
+  // FUNGSI FETCH SEMUA TULISAN
   const muatTulisan = async () => {
     eksekusi({
       tipe: 'MEMUAT',
@@ -34,6 +35,7 @@ const PenyediaAplikasi = ({ children }) => {
     return dataTulisan;
   };
 
+  // FUNGSI FETCH SATU TULISAN
   const ambilSatuTulisan = async (id) => {
     eksekusi({
       tipe: 'MEMUAT',
@@ -46,6 +48,7 @@ const PenyediaAplikasi = ({ children }) => {
     return satuTulisan;
   };
 
+  // FUNGSI POST TULISAN
   const simpanTulisan = async (tulisan) => {
     try {
       const konfigurasiRekues = {
