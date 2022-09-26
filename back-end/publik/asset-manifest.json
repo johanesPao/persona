@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.8e7521ea.css",
-    "main.js": "/static/js/main.50d83af3.js",
+    "main.css": "/static/css/main.053d9a56.css",
+    "main.js": "/static/js/main.4e36e7ec.js",
     "static/media/SVGPublikasiBerhasil.svg": "/static/media/SVGPublikasiBerhasil.09c3d0ab21e8576fbb4f52270afa98eb.svg",
     "static/media/SVGMuatTulisan.svg": "/static/media/SVGMuatTulisan.cc5735f4a240a675c9d133a6902b9d21.svg",
     "static/media/SVGMenu.svg": "/static/media/SVGMenu.d1323260b6034e0f5830ea039869bc36.svg",
     "static/media/SVGTutup.svg": "/static/media/SVGTutup.2810027c8140485a9bf4f5e6cee92a2c.svg",
     "index.html": "/index.html",
-    "main.8e7521ea.css.map": "/static/css/main.8e7521ea.css.map",
-    "main.50d83af3.js.map": "/static/js/main.50d83af3.js.map"
+    "main.053d9a56.css.map": "/static/css/main.053d9a56.css.map",
+    "main.4e36e7ec.js.map": "/static/js/main.4e36e7ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e7521ea.css",
-    "static/js/main.50d83af3.js"
+    "static/css/main.053d9a56.css",
+    "static/js/main.4e36e7ec.js"
   ]
 }
