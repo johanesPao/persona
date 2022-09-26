@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HalamanMuka from './halaman/HalamanMuka';
+import HalamanKelola from './halaman/HalamanKelola';
 import HalamanPenulisan from './halaman/HalamanPenulisan';
 import HalamanTentang from './halaman/HalamanTentang';
 import HalamanTidakDitemukan from './halaman/HalamanTidakDitemukan';
@@ -14,7 +15,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<SharedNavigasi />}>
           <Route index element={<HalamanMuka />} />
-          <Route path='buat-tulisan' element={<HalamanPenulisan />} />
+          <Route path='kelola'>
+            <Route index element={<HalamanKelola />} />
+            <Route path='buat-tulisan' element={<HalamanPenulisan />} />
+          </Route>
           <Route path='tentang' element={<HalamanTentang />} />
           <Route path=':id' element={<Tulisan />} />
           <Route path='*' element={<HalamanTidakDitemukan />} />

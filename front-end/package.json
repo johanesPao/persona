@@ -6,16 +6,18 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@uiw/react-md-editor": "^3.18.1",
     "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
+    "remark-gfm": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "GENERATE_SOURCEMAP=false react-scripts start",
     "build-css": "tailwindcss -i src/css/index.css -o src/css/main.css",
     "css-watch": "tailwindcss -i ./src/css/index.css -o ./src/css/main.css --watch",
     "build": "npm run build-css && react-scripts build && rm -rf ../back-end/publik && mv build ../back-end/publik",
@@ -41,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"

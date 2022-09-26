@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 
 import Modal from '../komponen/Modal';
 
@@ -34,6 +35,7 @@ const HalamanPenulisan = () => {
       // - kembalikan input judul dan tulisan ke ''
       setIsiJudul('');
       setIsiTulisan('');
+      console.log(data);
       // - tampilkan modal pesan sukses posting
       setStatusModal('TULISAN_SUKSES');
       setTunjukkanModal(true);
@@ -58,7 +60,7 @@ const HalamanPenulisan = () => {
       <div className='container mx-auto p-8'>
         <form
           onSubmit={penangananSubmit}
-          className='bg-dark shadow-md rounded px-8 py-6 mb-4'
+          className='bg-dark rounded px-8 py-6 mb-4'
         >
           <div className='mb-4'>
             <label className='block text-white text-sm font-bold mb-2'>
@@ -77,14 +79,9 @@ const HalamanPenulisan = () => {
             <label className='block text-white text-sm font-bold mb-2'>
               Isi Tulisan
             </label>
-            <textarea
-              value={isiTulisan}
-              onChange={(e) => setIsiTulisan(e.target.value)}
-              className={`shadow appearance-none border rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline text-dark resize-none ${
-                isiTulisan === '' && kesalahan ? 'border-red' : null
-              }`}
-              rows='20'
-            />
+            <div data-color-mode='light'>
+              <MDEditor value={isiTulisan} onChange={setIsiTulisan} />
+            </div>
           </div>
           <div className='flex items-center justify-between'>
             <button

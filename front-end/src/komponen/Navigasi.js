@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+
+import { useKonteksGlobal } from '../konteks/konteks';
 
 import { ReactComponent as SVGMenu } from '../aset/SVGMenu.svg';
 import { ReactComponent as SVGTutup } from '../aset/SVGTutup.svg';
@@ -8,6 +10,7 @@ import { ReactComponent as SVGTutup } from '../aset/SVGTutup.svg';
 const Navigasi = () => {
   const [tunjukkanMenu, setTunjukkanMenu] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
+  const { adalahAdmin } = useKonteksGlobal();
 
   const bukaTutupMenu = () => {
     setTunjukkanMenu(!tunjukkanMenu);
@@ -22,10 +25,10 @@ const Navigasi = () => {
         setMenuMobile(true);
       }
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize());
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize());
     };
   }, []);
 
@@ -36,7 +39,9 @@ const Navigasi = () => {
       <nav className='flex bg-navy items-center justify-between flex-wrap p-6'>
         <div className='flex items-center flex-shrink-0 mr-6'>
           <span className='font-semibold text-xl tracking-tight'>
-            jPao Persona
+            <Link to='/' onClick={tunjukkanMenu && bukaTutupMenu}>
+              jPao Persona
+            </Link>
           </span>
         </div>
         {/* <div className='w-full block md:flex hidden flex-grow md:items-center md:w-auto'>
@@ -45,12 +50,11 @@ const Navigasi = () => {
           <>
             <div className='w-full block md:flex hidden flex-grow md:items-center md:w-auto'>
               <div className='text-sm md:flex-grow justify-between'>
-                <NavLink to='/' className='px-2'>
-                  Halaman Depan
-                </NavLink>
-                <NavLink to='/buat-tulisan' className='px-2'>
-                  Penulisan
-                </NavLink>
+                {adalahAdmin && (
+                  <NavLink to='/kelola' className='px-2'>
+                    Kelola Konten
+                  </NavLink>
+                )}
                 <NavLink to='/tentang' className='px-2'>
                   Tentang
                 </NavLink>
@@ -67,7 +71,7 @@ const Navigasi = () => {
           </>
         ) : (
           <>
-            <div className='flex md:hidden absolute top-0 right-0 p-4'>
+            <div className='flex absolute top-0 right-0 p-4'>
               <button onClick={bukaTutupMenu}>
                 {tunjukkanMenu ? <SVGTutup /> : <SVGMenu />}
               </button>
@@ -77,7 +81,30 @@ const Navigasi = () => {
                 !tunjukkanMenu && 'hidden'
               }`}
             >
-              <center>Belum ada Menu 0_0</center>
+              <center>
+                <ul>
+                  {adalahAdmin && (
+                    <li>
+                      <NavLink
+                        to='/kelola'
+                        className='px-2'
+                        onClick={bukaTutupMenu}
+                      >
+                        Kelola Konten
+                      </NavLink>
+                    </li>
+                  )}
+                  <li>
+                    <NavLink
+                      to='/tentang'
+                      className='px-2'
+                      onClick={bukaTutupMenu}
+                    >
+                      Tentang
+                    </NavLink>
+                  </li>
+                </ul>
+              </center>
             </div>
           </>
         )}

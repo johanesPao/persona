@@ -14,7 +14,7 @@ const KonteksAplikasi = React.createContext();
 
 const keadaanAwal = {
   sedangMemuat: true,
-  adalahAdmin: false,
+  adalahAdmin: true,
   isiJudul: '',
   isiTulisan: '',
 };
