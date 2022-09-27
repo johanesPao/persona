@@ -2,6 +2,7 @@ const {
   getSemuaTulisan,
   simpanTulisan,
   getTulisan,
+  hapusTulisan,
 } = require('../../model/tulisan/tulisan.model');
 
 async function httpGetSemuaTulisan(req, res) {
@@ -32,8 +33,25 @@ async function httpGetTulisan(req, res) {
   }
 }
 
+async function httpHapusTulisan(req, res) {
+  try {
+    console.log(req.params.id);
+    const data = await hapusTulisan(req.params.id);
+    return res.status(200).json({
+      status: 200,
+      data: req.params.id,
+    });
+  } catch (kesalahan) {
+    return res.status(500).json({
+      status: 500,
+      data: kesalahan,
+    });
+  }
+}
+
 module.exports = {
   httpGetSemuaTulisan,
   httpPostTulisan,
   httpGetTulisan,
+  httpHapusTulisan,
 };

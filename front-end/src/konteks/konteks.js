@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useReducer, useCallback } from 'react';
 
 import logika from './logika';
 
@@ -23,7 +23,7 @@ const PenyediaAplikasi = ({ children }) => {
   const [keadaan, eksekusi] = useReducer(logika, keadaanAwal);
 
   // FUNGSI FETCH SEMUA TULISAN
-  const muatTulisan = async () => {
+  const muatTulisan = useCallback(async () => {
     eksekusi({
       tipe: 'MEMUAT',
     });
@@ -33,7 +33,7 @@ const PenyediaAplikasi = ({ children }) => {
       tipe: 'SELESAI_MEMUAT',
     });
     return dataTulisan;
-  };
+  }, []);
 
   // FUNGSI FETCH SATU TULISAN
   const ambilSatuTulisan = async (id) => {
@@ -68,6 +68,26 @@ const PenyediaAplikasi = ({ children }) => {
     }
   };
 
+  // FUNGSI HAPUS TULISAN
+  const hapusTulisan = async (id) => {
+    try {
+      const konfigurasiRekues = {
+        method: 'DELETE',
+        body: id,
+      };
+      const response = await fetch(
+        `${BACKEND_API}/tulisan/${id}`,
+        konfigurasiRekues,
+      );
+      const dataResponse = await response.json();
+      return dataResponse;
+    } catch (kesalahan) {
+      return {
+        pesan: kesalahan,
+      };
+    }
+  };
+
   return (
     <KonteksAplikasi.Provider
       value={{
@@ -75,6 +95,7 @@ const PenyediaAplikasi = ({ children }) => {
         muatTulisan,
         simpanTulisan,
         ambilSatuTulisan,
+        hapusTulisan,
       }}
     >
       {children}

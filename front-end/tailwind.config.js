@@ -50,6 +50,8 @@ module.exports = {
       purple: '#533483',
       red: '#E94560',
       white: '#FFFFFF',
+      brown: '#F8EDE3',
+      green: '#59CEBF',
     },
   },
   plugins: [require('@tailwindcss/typography')],

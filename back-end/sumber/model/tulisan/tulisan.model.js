@@ -40,8 +40,20 @@ async function getTulisan(id) {
   }
 }
 
+async function hapusTulisan(id) {
+  try {
+    const data = await tulisan.findOneAndDelete({
+      _id: id,
+    });
+    return data;
+  } catch (kesalahan) {
+    throw new Error(kesalahan);
+  }
+}
+
 module.exports = {
   getSemuaTulisan,
   simpanTulisan,
   getTulisan,
+  hapusTulisan,
 };
