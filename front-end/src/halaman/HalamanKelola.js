@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Modal from '../komponen/Modal';
 
 import { useKonteksGlobal } from '../konteks/konteks';
 
 const HalamanKelola = () => {
-  const { sedangMemuat, muatTulisan, hapusTulisan } = useKonteksGlobal();
+  const navigasi = useNavigate();
+  const { sedangMemuat, muatTulisan, hapusTulisan, mulaiModeEdit } =
+    useKonteksGlobal();
   const [dataTulisan, setDataTulisan] = useState([]);
   const [id, setID] = useState('');
   const [tunjukkanModal, setTunjukkanModal] = useState(false);
   const [statusModal, setStatusModal] = useState('');
 
   const penangananEdit = (id) => {
-    console.log(`Edit ${id}`);
+    mulaiModeEdit(id);
+    navigasi('/kelola/edit-tulisan');
   };
 
   const penangananHapus = async (id) => {

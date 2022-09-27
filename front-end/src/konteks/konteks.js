@@ -17,6 +17,8 @@ const keadaanAwal = {
   adalahAdmin: true,
   isiJudul: '',
   isiTulisan: '',
+  editTulisan: false,
+  idEditTulisan: '',
 };
 
 const PenyediaAplikasi = ({ children }) => {
@@ -88,6 +90,44 @@ const PenyediaAplikasi = ({ children }) => {
     }
   };
 
+  // FUNGSI MODE EDIT
+  const mulaiModeEdit = (id) => {
+    eksekusi({
+      tipe: 'MULAI_MODE_EDIT',
+      muatan: id,
+    });
+  };
+
+  // FUNGSI AKHIRI MODE EDIT
+  const akhiriModeEdit = () => {
+    eksekusi({
+      tipe: 'AKHIRI_MODE_EDIT',
+    });
+  };
+
+  // FUNGSI EDIT TULISAN
+  const editPenulisan = async (tulisan) => {
+    try {
+      const konfigurasiRekues = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(tulisan),
+      };
+      const response = await fetch(
+        `${BACKEND_API}/tulisan/${tulisan._id}`,
+        konfigurasiRekues,
+      );
+      const dataResponse = await response.json();
+      return dataResponse;
+    } catch (kesalahan) {
+      return {
+        pesan: kesalahan,
+      };
+    }
+  };
+
   return (
     <KonteksAplikasi.Provider
       value={{
@@ -96,6 +136,9 @@ const PenyediaAplikasi = ({ children }) => {
         simpanTulisan,
         ambilSatuTulisan,
         hapusTulisan,
+        mulaiModeEdit,
+        akhiriModeEdit,
+        editPenulisan,
       }}
     >
       {children}

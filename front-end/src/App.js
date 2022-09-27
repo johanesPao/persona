@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HalamanMuka from './halaman/HalamanMuka';
 import HalamanKelola from './halaman/HalamanKelola';
 import HalamanPenulisan from './halaman/HalamanPenulisan';
+import HalamanEditTulisan from './halaman/HalamanEditTulisan';
 import HalamanTentang from './halaman/HalamanTentang';
 import HalamanTidakDitemukan from './halaman/HalamanTidakDitemukan';
 import Tulisan from './halaman/Tulisan';
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='kelola'>
             <Route index element={<HalamanKelola />} />
             <Route path='buat-tulisan' element={<HalamanPenulisan />} />
+            <Route path='edit-tulisan' element={<HalamanEditTulisan />} />
           </Route>
           <Route path='tentang' element={<HalamanTentang />} />
           <Route path=':id' element={<Tulisan />} />

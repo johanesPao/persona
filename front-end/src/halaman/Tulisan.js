@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import { useKonteksGlobal } from '../konteks/konteks';
 
 import Modal from '../komponen/Modal';
@@ -28,11 +31,22 @@ const Tulisan = () => {
         <Modal statusModal={'MEMUAT'} />
       ) : (
         <div className='container mx-auto p-8'>
-          <article key={id} className='text-white p-4'>
+          <article
+            key={id}
+            className='prose dark:prose-invert text-white pt-0 pb-4 max-w-none'
+          >
             {/* Buat judul tulisan sebagai navigasi ke halaman /tulisan/id */}
-            <h1 className='text-2xl font-bold'>{judulTulisan}</h1>
-            <p>{tanggalTerformat}</p>
-            <p>{isiTulisan}</p>
+            <h1 className='font-bold text-2xl'>{judulTulisan}</h1>
+            <p className='mt-0 mb-2 px-0'>{tanggalTerformat}</p>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              className='mt-0 mb-2 px-0'
+              components={{
+                p: React.Fragment,
+              }}
+            >
+              {isiTulisan}
+            </ReactMarkdown>
           </article>
         </div>
       )}

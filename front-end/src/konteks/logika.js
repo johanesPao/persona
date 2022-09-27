@@ -10,17 +10,29 @@ const logika = (keadaan, tindakan) => {
         ...keadaan,
         sedangMemuat: false,
       };
-    case 'TAMPILKAN_TULISAN':
+    // case 'TAMPILKAN_TULISAN':
+    //   return {
+    //     ...keadaan,
+    //     dataTulisan: tindakan.muatan,
+    //     sedangMemuat: false,
+    //   };
+    // case 'TAMPILKAN_SATU_TULISAN':
+    //   return {
+    //     ...keadaan,
+    //     dataTulisan: tindakan.muatan,
+    //     sedangMemuat: false,
+    //   };
+    case 'MULAI_MODE_EDIT':
       return {
         ...keadaan,
-        dataTulisan: tindakan.muatan,
-        sedangMemuat: false,
+        editTulisan: true,
+        idEditTulisan: tindakan.muatan,
       };
-    case 'TAMPILKAN_SATU_TULISAN':
+    case 'AKHIRI_MODE_EDIT':
       return {
         ...keadaan,
-        dataTulisan: tindakan.muatan,
-        sedangMemuat: false,
+        editTulisan: false,
+        idEditTulisan: '',
       };
     default:
       return keadaan;

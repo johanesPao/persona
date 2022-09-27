@@ -51,9 +51,31 @@ async function hapusTulisan(id) {
   }
 }
 
+async function editTulisan(dataTulisan) {
+  try {
+    const { _id, judulTulisan, tanggalTulisan, isiTulisan } = dataTulisan;
+    const data = await tulisan.findOneAndUpdate(
+      {
+        _id: _id,
+      },
+      {
+        judulTulisan,
+        tanggalTulisan,
+        isiTulisan,
+      },
+      {
+        new: true,
+      },
+    );
+  } catch (kesalahan) {
+    throw new Error(kesalahan);
+  }
+}
+
 module.exports = {
   getSemuaTulisan,
   simpanTulisan,
   getTulisan,
   hapusTulisan,
+  editTulisan,
 };

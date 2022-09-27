@@ -3,6 +3,7 @@ const {
   simpanTulisan,
   getTulisan,
   hapusTulisan,
+  editTulisan,
 } = require('../../model/tulisan/tulisan.model');
 
 async function httpGetSemuaTulisan(req, res) {
@@ -49,9 +50,25 @@ async function httpHapusTulisan(req, res) {
   }
 }
 
+async function httpEditTulisan(req, res) {
+  try {
+    const data = await editTulisan(req.body);
+    return res.status(200).json({
+      status: 200,
+      data: req.body,
+    });
+  } catch (kesalahan) {
+    return res.status(500).json({
+      status: 500,
+      data: kesalahan,
+    });
+  }
+}
+
 module.exports = {
   httpGetSemuaTulisan,
   httpPostTulisan,
   httpGetTulisan,
   httpHapusTulisan,
+  httpEditTulisan,
 };
