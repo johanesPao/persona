@@ -1,0 +1,23 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;"><style>
+     .message14-a {animation:message14-a 5s infinite;}
+     @keyframes message14-a {
+         0%{transform: translate3d(0, 0, 0); opacity: 0;}
+         20%{transform: translate3d(0, 10px, 0); opacity: 0;}
+         40%{transform: translate3d(0, 0, 0); opacity: 1;}
+         80%{transform: translate3d(0, 0, 0); opacity: 1;}
+         100%{transform: translate3d(0, -10px, 0); opacity: 0;}
+     }
+     .message14-b {animation:message14-b 5s infinite;}
+     @keyframes message14-b {
+         0%{transform: translate3d(0, 0, 0); opacity: 0;}
+         30%{transform: translate3d(0, 10px, 0); opacity: 0;}
+         50%{transform: translate3d(0, 0, 0); opacity: 1;}
+         90%{transform: translate3d(0, 0, 0); opacity: 1;}
+         100%{transform: translate3d(0, -10px, 0); opacity: 0;}
+     }
+     @media (prefers-reduced-motion: reduce) {
+         .message14-a, .message14-b {
+             animation: none;
+         }
+     }
+    </style><g class="message14-b" style="animation-duration: 5s;"><path class="fillCls1" fill-rule="evenodd" clip-rule="evenodd" d="M79.1934 62.4246V121.755L91.0594 109.889H146.999V62.4246H79.1934Z" fill="#FF6E6E" stroke-width="2px"></path><path class="fillCls2" fill-rule="evenodd" clip-rule="evenodd" d="M89.3654 75.9858H135.134V82.7664H89.3654V75.9858ZM89.3652 89.5468H116.488V96.3273H89.3652V89.5468Z" fill="#0C0058" stroke-width="2px"></path></g><g class="message14-a" style="animation-duration: 5s;"><path class="fillCls1" fill-rule="evenodd" clip-rule="evenodd" d="M69.8066 28V87.33L57.9406 75.464H2.00088V28H69.8066Z" fill="#FF6E6E" stroke-width="2px"></path><path class="fillCls2" fill-rule="evenodd" clip-rule="evenodd" d="M59.6346 41.561H13.8658V48.3416H59.6346V41.561ZM59.6348 55.1223H32.5125V61.9029H59.6348V55.1223Z" fill="#0C0058" stroke-width="2px"></path></g></svg>
