@@ -17,8 +17,8 @@ module.exports = {
               },
             },
             pre: {
-              color: '#000000',
-              backgroundColor: '#F8EDE3',
+              color: '#FFFFFF',
+              backgroundColor: '#011627',
             },
             'pre code::before': {
               'padding-left': 'unset',
@@ -27,10 +27,9 @@ module.exports = {
               'padding-right': 'unset',
             },
             code: {
-              backgroundColor: '#F8EDE3',
-              color: '#000000',
+              backgroundColor: '#011627',
+              color: '#FFFFFF',
               fontWeight: '400',
-              'border-radius': '0.25rem',
             },
             'code::before': {
               content: '""',
@@ -50,7 +49,7 @@ module.exports = {
       purple: '#533483',
       red: '#E94560',
       white: '#FFFFFF',
-      brown: '#F8EDE3',
+      grey: '#F8EDE3',
       green: '#59CEBF',
     },
   },

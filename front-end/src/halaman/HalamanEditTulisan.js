@@ -64,12 +64,12 @@ const HalamanEditTulisan = () => {
     async function fetchDanSetTulisan(id) {
       const tulisan = await ambilSatuTulisan(id);
       setTulisan(tulisan);
-      const { _id, judulTulisan, tanggalTulisan, isiTulisan } = tulisan;
+      const { judulTulisan, isiTulisan } = tulisan;
       setIsiJudul(judulTulisan);
       setIsiTulisan(isiTulisan);
     }
     fetchDanSetTulisan(idEditTulisan);
-  }, []);
+  }, [editTulisan, idEditTulisan, navigasi, ambilSatuTulisan]);
 
   return (
     <>

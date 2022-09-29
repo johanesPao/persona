@@ -38,7 +38,7 @@ const PenyediaAplikasi = ({ children }) => {
   }, []);
 
   // FUNGSI FETCH SATU TULISAN
-  const ambilSatuTulisan = async (id) => {
+  const ambilSatuTulisan = useCallback(async (id) => {
     eksekusi({
       tipe: 'MEMUAT',
     });
@@ -48,10 +48,10 @@ const PenyediaAplikasi = ({ children }) => {
       tipe: 'SELESAI_MEMUAT',
     });
     return satuTulisan;
-  };
+  }, []);
 
   // FUNGSI POST TULISAN
-  const simpanTulisan = async (tulisan) => {
+  const simpanTulisan = useCallback(async (tulisan) => {
     try {
       const konfigurasiRekues = {
         method: 'POST',
@@ -68,10 +68,10 @@ const PenyediaAplikasi = ({ children }) => {
         pesan: kesalahan,
       };
     }
-  };
+  }, []);
 
   // FUNGSI HAPUS TULISAN
-  const hapusTulisan = async (id) => {
+  const hapusTulisan = useCallback(async (id) => {
     try {
       const konfigurasiRekues = {
         method: 'DELETE',
@@ -88,25 +88,25 @@ const PenyediaAplikasi = ({ children }) => {
         pesan: kesalahan,
       };
     }
-  };
+  }, []);
 
   // FUNGSI MODE EDIT
-  const mulaiModeEdit = (id) => {
+  const mulaiModeEdit = useCallback((id) => {
     eksekusi({
       tipe: 'MULAI_MODE_EDIT',
       muatan: id,
     });
-  };
+  }, []);
 
   // FUNGSI AKHIRI MODE EDIT
-  const akhiriModeEdit = () => {
+  const akhiriModeEdit = useCallback(() => {
     eksekusi({
       tipe: 'AKHIRI_MODE_EDIT',
     });
-  };
+  }, []);
 
   // FUNGSI EDIT TULISAN
-  const editPenulisan = async (tulisan) => {
+  const editPenulisan = useCallback(async (tulisan) => {
     try {
       const konfigurasiRekues = {
         method: 'POST',
@@ -126,7 +126,7 @@ const PenyediaAplikasi = ({ children }) => {
         pesan: kesalahan,
       };
     }
-  };
+  }, []);
 
   return (
     <KonteksAplikasi.Provider

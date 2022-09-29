@@ -801,11 +801,10 @@ html {
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *)) {
-  color: #000000;
+  color: #FFFFFF;
   font-weight: 400;
   font-size: 0.875em;
-  background-color: #F8EDE3;
-  border-radius: 0.25rem;
+  background-color: #011627;
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
@@ -849,8 +848,8 @@ html {
 }
 
 .prose :where(pre):not(:where([class~="not-prose"] *)) {
-  color: #000000;
-  background-color: #F8EDE3;
+  color: #FFFFFF;
+  background-color: #011627;
   overflow-x: auto;
   font-weight: 400;
   font-size: 0.875em;
@@ -1244,6 +1243,10 @@ html {
   left: 0px;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1287,6 +1290,14 @@ html {
 
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.\!inline {
+  display: inline !important;
 }
 
 .flex {
