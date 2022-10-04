@@ -12,12 +12,14 @@ async function simpanTulisan(tulisanBaru) {
 
 async function getSemuaTulisan() {
   try {
-    const data = await tulisan.find(
-      {},
-      {
-        __v: 0,
-      },
-    );
+    const data = await tulisan
+      .find(
+        {},
+        {
+          __v: 0,
+        },
+      )
+      .sort([['tanggalTulisan', -1]]);
     return data;
   } catch (kesalahan) {
     throw new Error(kesalahan);
