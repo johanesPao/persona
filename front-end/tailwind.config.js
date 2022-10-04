@@ -18,7 +18,7 @@ module.exports = {
             },
             pre: {
               color: '#FFFFFF',
-              backgroundColor: '#011627',
+              backgroundColor: '#7895B2',
             },
             'pre code::before': {
               'padding-left': 'unset',
@@ -49,7 +49,7 @@ module.exports = {
       purple: '#533483',
       red: '#E94560',
       white: '#FFFFFF',
-      grey: '#F8EDE3',
+      grey: '#EEEEEE',
       green: '#59CEBF',
     },
   },
