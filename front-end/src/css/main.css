@@ -849,7 +849,7 @@ html {
 
 .prose :where(pre):not(:where([class~="not-prose"] *)) {
   color: #FFFFFF;
-  background-color: #011627;
+  background-color: #7895B2;
   overflow-x: auto;
   font-weight: 400;
   font-size: 0.875em;
